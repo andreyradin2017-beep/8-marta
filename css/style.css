@@ -1,0 +1,303 @@
+/* Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: 'Onest', sans-serif;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Page Layout */
+.page {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background Video */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.background-video__media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Main Content Layer */
+.main-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Header & Logo */
+.header {
+    pointer-events: none; /* Let empty header click through */
+}
+
+.header__logo {
+    position: fixed;
+    pointer-events: auto;
+    height: auto;
+    z-index: 100;
+}
+
+/* Sound Toggle */
+.sound-toggle {
+    position: fixed;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    pointer-events: auto;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+}
+
+.sound-toggle:hover {
+    opacity: 0.7;
+}
+
+.sound-toggle__icon {
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s;
+}
+
+/* Decor Elements */
+.decor__flower {
+    position: absolute;
+    pointer-events: none;
+    height: auto;
+    max-width: 100%;
+    overflow: visible;
+    display: block;
+}
+
+/* Greeting */
+.greeting {
+    position: absolute;
+    pointer-events: auto;
+}
+
+.greeting__text {
+    font-weight: 400;
+    color: #FFFFFF;
+    white-space: pre-wrap;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    pointer-events: auto;
+}
+
+.footer__text {
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.footer__link {
+    color: inherit;
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+
+.footer__link:hover {
+    opacity: 0.7;
+}
+
+/* =========================================
+   Desktop (1920x1080)
+   Default styles for screens > 1024px
+   ========================================= */
+@media (min-width: 1025px) {
+    .page {
+        min-height: max(100vh, 56.25vw); /* 16:9 aspect ratio minimum height */
+    }
+
+    .header__logo {
+        top: 1.35vw; /* 26px / 1920 */
+        left: 1.14vw; /* 22px / 1920 */
+        width: 12.5vw;
+        max-width: 240px;
+    }
+
+    .sound-toggle {
+        top: 2.24vw; /* 43px / 1920 */
+        right: 1.56vw; /* 30px / 1920 */
+        width: 32px;
+        height: 32px;
+    }
+
+    .decor__flower--right {
+        top: 23.49vw; /* 451px / 1920 */
+        left: 4.89vw; /* 94px / 1920 */
+        width: 89.38vw; 
+    }
+
+    .decor__flower--left {
+        top: 37.55vw; /* 721px / 1920 */
+        left: 4.48vw; /* 86px / 1920 */
+        width: 40.3vw; 
+    }
+
+    .greeting {
+        top: 38.07vw; /* 731px / 1920 */
+        left: 50vw;
+        width: 45.47vw;
+    }
+
+    .greeting__text {
+        font-size: clamp(16px, 1.25vw, 24px); /* 24px at 1920 */
+        line-height: 1.2;
+    }
+
+    .footer {
+        bottom: 2.29vw; /* 44px / 1920 */
+        left: 4.84vw; /* 93px / 1920 */
+        top: auto;
+    }
+
+    .footer__text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
+/* =========================================
+   Tablet (max-width: 1024px)
+   Matches Figma Tablet Design 768x445
+   ========================================= */
+@media (max-width: 1024px) and (min-width: 481px) {
+    .header__logo {
+        top: 3.82%;
+        left: 3.9vw;
+        width: 16.6vw;
+        max-width: 128px;
+    }
+
+    .sound-toggle {
+        top: 5.61%;
+        right: 3.95vw;
+        width: 2.47vw; /* 19px / 768 */
+        height: 2.47vw;
+        min-width: 14px;
+        min-height: 14px;
+    }
+
+    .decor__flower--right {
+        top: 22.02%;
+        left: 4.3vw;
+        width: 77.86vw;
+    }
+
+    .decor__flower--left {
+        top: 43.14%;
+        left: 3.9vw;
+        width: 35.15vw;
+    }
+
+    .greeting {
+        top: 62.02%;
+        left: 3.9vw;
+        width: 51.43vw;
+        max-width: 395px;
+    }
+
+    .greeting__text {
+        font-size: clamp(10px, 1.56vw, 12px); /* 12px at 768 */
+        line-height: 1.16;
+    }
+
+    .footer {
+        bottom: 4.26%;
+        left: 3.9vw;
+        top: auto;
+    }
+
+    .footer__text {
+        font-size: clamp(9px, 1.43vw, 11px); /* 11px at 768 */
+        line-height: 1.5;
+    }
+}
+
+/* =========================================
+   Mobile (max-width: 480px)
+   Matches Figma Mobile Design 360x700
+   ========================================= */
+@media (max-width: 480px) {
+    .header__logo {
+        top: 2.42%;
+        left: 5.55vw;
+        width: 35.5vw;
+        max-width: 128px;
+    }
+
+    .sound-toggle {
+        top: 2.71%;
+        right: 5.55vw;
+        width: 9.72vw; /* 35px / 360 */
+        height: 9.72vw;
+        min-width: 24px;
+        min-height: 24px;
+    }
+
+    .decor__flower--right {
+        top: 47.14%;
+        left: 5.95vw;
+        width: 88.49vw;
+    }
+
+    .decor__flower--left {
+        top: 55.43%;
+        left: 5.55vw;
+        width: 88.31vw;
+    }
+
+    .greeting {
+        top: 69.28%;
+        left: 5.55vw;
+        width: 88.89vw;
+        max-width: 320px;
+    }
+
+    .greeting__text {
+        font-size: clamp(12px, 3.88vw, 14px); /* 14px at 360 */
+        line-height: 1.16;
+    }
+
+    .footer {
+        bottom: 2.57%;
+        left: 5.55vw;
+        top: auto;
+    }
+
+    .footer__text {
+        font-size: clamp(12px, 3.88vw, 14px); /* 14px at 360 */
+        line-height: 1.5;
+    }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С праздником 8 Марта!</title>
+    
+    <!-- Google Fonts: Onest -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css?v=2">
+</head>
+<body class="page">
+
+    <!-- Background Video -->
+    <div class="background-video">
+        <video class="background-video__media" src="video.mp4" autoplay loop muted playsinline id="bg-video"></video>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Logo -->
+        <img src="images/logo.svg" alt="Текарт" class="header__logo">
+            
+        <!-- Sound Toggle -->
+        <button class="sound-toggle" id="sound-toggle" aria-label="Toggle Sound">
+            <img src="images/volume.svg" alt="Volume" class="sound-toggle__icon" id="sound-icon">
+        </button>
+
+        <!-- Decor Elements -->
+        <img class="decor__flower decor__flower--right" src="images/flower-right.svg" alt="">
+        <img class="decor__flower decor__flower--left" src="images/flower-left.svg" alt="">
+
+        <!-- Greeting Text -->
+        <section class="greeting">
+            <h1 class="greeting__text">С праздником 8 Марта! <br><br>Пусть этот весенний день наполнит вашу жизнь яркими красками, подарит вдохновение для новых свершений и озарит улыбками. <br><br>Желаем вам солнечного настроения, неиссякаемой энергии и бесконечной красоты вокруг!</h1>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer__text">© 2026 Маркетинговая группа <a href="https://techart.ru/" target="_blank" rel="noopener noreferrer" class="footer__link">Текарт</a></p>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
