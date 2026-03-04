@@ -12,14 +12,35 @@ document.addEventListener("DOMContentLoaded", () => {
     isMuted = !isMuted;
     video.muted = isMuted;
 
-    // We'll update the icon based on mute state.
-    // Assuming the Figma downloaded 'volume.svg' is just one state,
-    // we might need to toggle its opacity or change the SVG if we had a muted version.
-    // For now, let's just use CSS opacity to indicate muted/unmuted if we only have one icon.
     if (isMuted) {
       soundIcon.style.opacity = "0.5";
     } else {
       soundIcon.style.opacity = "1";
     }
   });
+
+  // Parallax Effect
+  const parallaxElements = document.querySelectorAll(".js-parallax");
+  let ticking = false;
+
+  function applyParallax() {
+    const scrollY = window.scrollY;
+    parallaxElements.forEach((el) => {
+      const speed = parseFloat(el.getAttribute("data-speed")) || 0;
+      const yOffset = scrollY * speed;
+      // Using CSS custom property avoids conflicts with CSS animations
+      el.style.setProperty("--parallax-y", `${yOffset}px`);
+    });
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(applyParallax);
+      ticking = true;
+    }
+  });
+
+  // Apply parallax immediately on load in case the page is already scrolled
+  applyParallax();
 });

@@ -52,6 +52,18 @@ html, body {
     pointer-events: none;
 }
 
+/* Parallax Layers */
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform: translate3d(0, var(--parallax-y, 0px), 0);
+    will-change: transform;
+}
+
 /* Header & Logo */
 .header {
     pointer-events: none; /* Let empty header click through */
@@ -62,6 +74,8 @@ html, body {
     pointer-events: auto;
     height: auto;
     z-index: 100;
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards 1.3s;
 }
 
 /* Sound Toggle */
@@ -74,11 +88,14 @@ html, body {
     align-items: center;
     pointer-events: auto;
     z-index: 100;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1);
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards 1.3s;
 }
 
 .sound-toggle:hover {
-    opacity: 0.7;
+    opacity: 0.8;
+    transform: scale(1.1);
 }
 
 .sound-toggle__icon {
@@ -95,12 +112,28 @@ html, body {
     max-width: 100%;
     overflow: visible;
     display: block;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+}
+
+.decor__flower--right {
+    opacity: 0;
+    animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.2s;
+}
+
+.decor__flower--left {
+    opacity: 0;
+    animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.6s;
 }
 
 /* Greeting */
 .greeting {
     position: absolute;
     pointer-events: auto;
+    opacity: 0;
+    animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.9s;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
 }
 
 .greeting__text {
@@ -113,6 +146,8 @@ html, body {
 .footer {
     position: absolute;
     pointer-events: auto;
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards 1.5s;
 }
 
 .footer__text {
@@ -128,6 +163,25 @@ html, body {
 
 .footer__link:hover {
     opacity: 0.7;
+}
+
+/* =========================================
+   Animations
+   ========================================= */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /* =========================================

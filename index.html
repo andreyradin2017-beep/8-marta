@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body class="page">
 
@@ -31,13 +31,19 @@
         </button>
 
         <!-- Decor Elements -->
-        <img class="decor__flower decor__flower--right" src="images/flower-right.svg" alt="">
-        <img class="decor__flower decor__flower--left" src="images/flower-left.svg" alt="">
+        <div class="parallax-layer js-parallax" data-speed="-0.15">
+            <img class="decor__flower decor__flower--right" src="images/flower-right.svg" alt="">
+        </div>
+        <div class="parallax-layer js-parallax" data-speed="-0.25">
+            <img class="decor__flower decor__flower--left" src="images/flower-left.svg" alt="">
+        </div>
 
         <!-- Greeting Text -->
-        <section class="greeting">
-            <h1 class="greeting__text">С праздником 8 Марта! <br><br>Пусть этот весенний день наполнит вашу жизнь яркими красками, подарит вдохновение для новых свершений и озарит улыбками. <br><br>Желаем вам солнечного настроения, неиссякаемой энергии и бесконечной красоты вокруг!</h1>
-        </section>
+        <div class="parallax-layer js-parallax" data-speed="-0.1">
+            <section class="greeting">
+                <h1 class="greeting__text">С праздником 8 Марта! <br><br>Пусть этот весенний день наполнит вашу жизнь яркими красками, подарит вдохновение для новых свершений и озарит улыбками. <br><br>Желаем вам солнечного настроения, неиссякаемой энергии и бесконечной красоты вокруг!</h1>
+            </section>
+        </div>
 
         <!-- Footer -->
         <footer class="footer">
